@@ -1,17 +1,20 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
-  createStoreHandler,
-  getMyStores,
-  getMyStoreById,
-  updateMyStore,
-  closeMyStore,
-  listAllStores,
-  getStoreBySlugHandler,
-  getStoreByIdHandler
-} from "../../controllers/store.controller.js";
-import { authenticate, optionalAuth } from "../../middlewares/auth.middleware.js";
-import { requireApprovedSeller } from "../../middlewares/ownership.middleware.js";
-import { checkStoreOwnership } from "../../middlewares/ownership.middleware.js";
+    createStoreHandler,
+    getMyStores,
+    getMyStoreById,
+    updateMyStore,
+    closeMyStore,
+    listAllStores,
+    getStoreBySlugHandler,
+    getStoreByIdHandler,
+} from '../../controllers/store.controller.js';
+import {
+    authenticate,
+    optionalAuth,
+} from '../../middlewares/auth.middleware.js';
+import { requireApprovedSeller } from '../../middlewares/ownership.middleware.js';
+import { checkStoreOwnership } from '../../middlewares/ownership.middleware.js';
 
 const router = Router();
 
@@ -22,21 +25,21 @@ const router = Router();
  * @desc    List all active stores
  * @access  Public
  */
-router.get("/", optionalAuth, listAllStores);
+router.get('/', optionalAuth, listAllStores);
 
 /**
  * @route   GET /api/v1/stores/id/:storeId
  * @desc    Get store by ID
  * @access  Public
  */
-router.get("/id/:storeId", optionalAuth, getStoreByIdHandler);
+router.get('/id/:storeId', optionalAuth, getStoreByIdHandler);
 
 /**
  * @route   GET /api/v1/stores/:slug
  * @desc    Get store by slug (must be last to not conflict with other routes)
  * @access  Public
  */
-router.get("/:slug", optionalAuth, getStoreBySlugHandler);
+router.get('/:slug', optionalAuth, getStoreBySlugHandler);
 
 // ============== SELLER ROUTES ==============
 
@@ -45,24 +48,14 @@ router.get("/:slug", optionalAuth, getStoreBySlugHandler);
  * @desc    Create a new store
  * @access  Private (Approved SELLER)
  */
-router.post(
-  "/",
-  authenticate,
-  requireApprovedSeller,
-  createStoreHandler
-);
+router.post('/', authenticate, requireApprovedSeller, createStoreHandler);
 
 /**
  * @route   GET /api/v1/stores/my-stores
  * @desc    Get all my stores
  * @access  Private (SELLER)
  */
-router.get(
-  "/my-stores",
-  authenticate,
-  requireApprovedSeller,
-  getMyStores
-);
+router.get('/my-stores', authenticate, requireApprovedSeller, getMyStores);
 
 /**
  * @route   GET /api/v1/stores/my-stores/:storeId
@@ -70,11 +63,11 @@ router.get(
  * @access  Private (SELLER)
  */
 router.get(
-  "/my-stores/:storeId",
-  authenticate,
-  requireApprovedSeller,
-  checkStoreOwnership,
-  getMyStoreById
+    '/my-stores/:storeId',
+    authenticate,
+    requireApprovedSeller,
+    checkStoreOwnership,
+    getMyStoreById
 );
 
 /**
@@ -83,11 +76,11 @@ router.get(
  * @access  Private (SELLER)
  */
 router.patch(
-  "/my-stores/:storeId",
-  authenticate,
-  requireApprovedSeller,
-  checkStoreOwnership,
-  updateMyStore
+    '/my-stores/:storeId',
+    authenticate,
+    requireApprovedSeller,
+    checkStoreOwnership,
+    updateMyStore
 );
 
 /**
@@ -96,11 +89,11 @@ router.patch(
  * @access  Private (SELLER)
  */
 router.post(
-  "/my-stores/:storeId/close",
-  authenticate,
-  requireApprovedSeller,
-  checkStoreOwnership,
-  closeMyStore
+    '/my-stores/:storeId/close',
+    authenticate,
+    requireApprovedSeller,
+    checkStoreOwnership,
+    closeMyStore
 );
 
 export default router;

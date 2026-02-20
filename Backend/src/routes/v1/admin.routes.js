@@ -1,32 +1,32 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
-  getAllSellers,
-  getPendingSellersList,
-  getSellerDetails,
-  approveSellerHandler,
-  rejectSellerHandler,
-  suspendSellerHandler,
-  reactivateSellerHandler
-} from "../../controllers/seller.controller.js";
+    getAllSellers,
+    getPendingSellersList,
+    getSellerDetails,
+    approveSellerHandler,
+    rejectSellerHandler,
+    suspendSellerHandler,
+    reactivateSellerHandler,
+} from '../../controllers/seller.controller.js';
 import {
-  getDashboard,
-  getPlatformStats,
-  getAllUsersHandler,
-  getUserHandler,
-  suspendUserHandler,
-  activateUserHandler,
-  getAllCategories,
-  createCategory,
-  updateCategory,
-  deleteCategory,
-  getAuditLogsHandler,
-  getAllStoresAdmin,
-  suspendStoreHandler,
-  activateStoreHandler
-} from "../../controllers/admin.controller.js";
-import { getPaymentStatsHandler } from "../../controllers/payment.controller.js";
-import { authenticate } from "../../middlewares/auth.middleware.js";
-import { requireAdmin } from "../../middlewares/role.middleware.js";
+    getDashboard,
+    getPlatformStats,
+    getAllUsersHandler,
+    getUserHandler,
+    suspendUserHandler,
+    activateUserHandler,
+    getAllCategories,
+    createCategory,
+    updateCategory,
+    deleteCategory,
+    getAuditLogsHandler,
+    getAllStoresAdmin,
+    suspendStoreHandler,
+    activateStoreHandler,
+} from '../../controllers/admin.controller.js';
+import { getPaymentStatsHandler } from '../../controllers/payment.controller.js';
+import { authenticate } from '../../middlewares/auth.middleware.js';
+import { requireAdmin } from '../../middlewares/role.middleware.js';
 
 const router = Router();
 
@@ -41,14 +41,14 @@ router.use(requireAdmin);
  * @desc    Get admin dashboard overview
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/dashboard", getDashboard);
+router.get('/dashboard', getDashboard);
 
 /**
  * @route   GET /api/v1/admin/stats
  * @desc    Get platform statistics
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/stats", getPlatformStats);
+router.get('/stats', getPlatformStats);
 
 // ============== USER MANAGEMENT ==============
 
@@ -57,28 +57,28 @@ router.get("/stats", getPlatformStats);
  * @desc    Get all users
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/users", getAllUsersHandler);
+router.get('/users', getAllUsersHandler);
 
 /**
  * @route   GET /api/v1/admin/users/:userId
  * @desc    Get user by ID
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/users/:userId", getUserHandler);
+router.get('/users/:userId', getUserHandler);
 
 /**
  * @route   POST /api/v1/admin/users/:userId/suspend
  * @desc    Suspend a user
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/users/:userId/suspend", suspendUserHandler);
+router.post('/users/:userId/suspend', suspendUserHandler);
 
 /**
  * @route   POST /api/v1/admin/users/:userId/activate
  * @desc    Activate a user
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/users/:userId/activate", activateUserHandler);
+router.post('/users/:userId/activate', activateUserHandler);
 
 // ============== SELLER MANAGEMENT ==============
 
@@ -87,49 +87,49 @@ router.post("/users/:userId/activate", activateUserHandler);
  * @desc    List all sellers with pagination and filters
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/sellers", getAllSellers);
+router.get('/sellers', getAllSellers);
 
 /**
  * @route   GET /api/v1/admin/sellers/pending
  * @desc    Get sellers pending approval
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/sellers/pending", getPendingSellersList);
+router.get('/sellers/pending', getPendingSellersList);
 
 /**
  * @route   GET /api/v1/admin/sellers/:sellerId
  * @desc    Get seller details with stores and verification
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/sellers/:sellerId", getSellerDetails);
+router.get('/sellers/:sellerId', getSellerDetails);
 
 /**
  * @route   POST /api/v1/admin/sellers/:sellerId/approve
  * @desc    Approve a seller
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/sellers/:sellerId/approve", approveSellerHandler);
+router.post('/sellers/:sellerId/approve', approveSellerHandler);
 
 /**
  * @route   POST /api/v1/admin/sellers/:sellerId/reject
  * @desc    Reject a seller
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/sellers/:sellerId/reject", rejectSellerHandler);
+router.post('/sellers/:sellerId/reject', rejectSellerHandler);
 
 /**
  * @route   POST /api/v1/admin/sellers/:sellerId/suspend
  * @desc    Suspend a seller
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/sellers/:sellerId/suspend", suspendSellerHandler);
+router.post('/sellers/:sellerId/suspend', suspendSellerHandler);
 
 /**
  * @route   POST /api/v1/admin/sellers/:sellerId/reactivate
  * @desc    Reactivate a suspended seller
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/sellers/:sellerId/reactivate", reactivateSellerHandler);
+router.post('/sellers/:sellerId/reactivate', reactivateSellerHandler);
 
 // ============== STORE MANAGEMENT ==============
 
@@ -138,21 +138,21 @@ router.post("/sellers/:sellerId/reactivate", reactivateSellerHandler);
  * @desc    Get all stores
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/stores", getAllStoresAdmin);
+router.get('/stores', getAllStoresAdmin);
 
 /**
  * @route   POST /api/v1/admin/stores/:storeId/suspend
  * @desc    Suspend a store
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/stores/:storeId/suspend", suspendStoreHandler);
+router.post('/stores/:storeId/suspend', suspendStoreHandler);
 
 /**
  * @route   POST /api/v1/admin/stores/:storeId/activate
  * @desc    Activate a store
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/stores/:storeId/activate", activateStoreHandler);
+router.post('/stores/:storeId/activate', activateStoreHandler);
 
 // ============== CATEGORY MANAGEMENT ==============
 
@@ -161,28 +161,28 @@ router.post("/stores/:storeId/activate", activateStoreHandler);
  * @desc    Get all categories
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/categories", getAllCategories);
+router.get('/categories', getAllCategories);
 
 /**
  * @route   POST /api/v1/admin/categories
  * @desc    Create category
  * @access  Private (SUPER_ADMIN)
  */
-router.post("/categories", createCategory);
+router.post('/categories', createCategory);
 
 /**
  * @route   PATCH /api/v1/admin/categories/:categoryId
  * @desc    Update category
  * @access  Private (SUPER_ADMIN)
  */
-router.patch("/categories/:categoryId", updateCategory);
+router.patch('/categories/:categoryId', updateCategory);
 
 /**
  * @route   DELETE /api/v1/admin/categories/:categoryId
  * @desc    Delete category
  * @access  Private (SUPER_ADMIN)
  */
-router.delete("/categories/:categoryId", deleteCategory);
+router.delete('/categories/:categoryId', deleteCategory);
 
 // ============== PAYMENTS ==============
 
@@ -191,7 +191,7 @@ router.delete("/categories/:categoryId", deleteCategory);
  * @desc    Get payment statistics
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/payments/stats", getPaymentStatsHandler);
+router.get('/payments/stats', getPaymentStatsHandler);
 
 // ============== AUDIT LOGS ==============
 
@@ -200,6 +200,6 @@ router.get("/payments/stats", getPaymentStatsHandler);
  * @desc    Get audit logs
  * @access  Private (SUPER_ADMIN)
  */
-router.get("/audit-logs", getAuditLogsHandler);
+router.get('/audit-logs', getAuditLogsHandler);
 
 export default router;

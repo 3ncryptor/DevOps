@@ -1,37 +1,35 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-const orderStatusHistorySchema = new mongoose.Schema(
-  {
+const orderStatusHistorySchema = new mongoose.Schema({
     orderId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Order",
-      required: true,
-      index: true
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Order',
+        required: true,
+        index: true,
     },
 
     status: {
-      type: String,
-      required: true
+        type: String,
+        required: true,
     },
 
     changedBy: {
-      type: mongoose.Schema.Types.ObjectId,
-      required: true
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
     },
 
     actorRole: {
-      type: String,
-      enum: ["USER", "SELLER", "SUPER_ADMIN"]
+        type: String,
+        enum: ['USER', 'SELLER', 'SUPER_ADMIN'],
     },
 
     changedAt: {
-      type: Date,
-      default: Date.now
-    }
-  }
-);
+        type: Date,
+        default: Date.now,
+    },
+});
 
 export const OrderStatusHistory = mongoose.model(
-  "OrderStatusHistory",
-  orderStatusHistorySchema
+    'OrderStatusHistory',
+    orderStatusHistorySchema
 );

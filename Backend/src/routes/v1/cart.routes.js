@@ -1,17 +1,17 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
-  getCart,
-  getCount,
-  addItem,
-  updateItem,
-  removeItem,
-  clearCartHandler,
-  validateCart,
-  getCartByStore
-} from "../../controllers/cart.controller.js";
-import { authenticate } from "../../middlewares/auth.middleware.js";
-import { authorizeRoles } from "../../middlewares/role.middleware.js";
-import ROLES from "../../constants/roles.js";
+    getCart,
+    getCount,
+    addItem,
+    updateItem,
+    removeItem,
+    clearCartHandler,
+    validateCart,
+    getCartByStore,
+} from '../../controllers/cart.controller.js';
+import { authenticate } from '../../middlewares/auth.middleware.js';
+import { authorizeRoles } from '../../middlewares/role.middleware.js';
+import ROLES from '../../constants/roles.js';
 
 const router = Router();
 
@@ -24,55 +24,55 @@ router.use(authorizeRoles(ROLES.USER));
  * @desc    Get user's cart
  * @access  Private (USER)
  */
-router.get("/", getCart);
+router.get('/', getCart);
 
 /**
  * @route   GET /api/v1/cart/count
  * @desc    Get cart item count
  * @access  Private (USER)
  */
-router.get("/count", getCount);
+router.get('/count', getCount);
 
 /**
  * @route   GET /api/v1/cart/by-store
  * @desc    Get cart grouped by store
  * @access  Private (USER)
  */
-router.get("/by-store", getCartByStore);
+router.get('/by-store', getCartByStore);
 
 /**
  * @route   POST /api/v1/cart/validate
  * @desc    Validate cart for checkout
  * @access  Private (USER)
  */
-router.post("/validate", validateCart);
+router.post('/validate', validateCart);
 
 /**
  * @route   POST /api/v1/cart/items
  * @desc    Add item to cart
  * @access  Private (USER)
  */
-router.post("/items", addItem);
+router.post('/items', addItem);
 
 /**
  * @route   PATCH /api/v1/cart/items/:productId
  * @desc    Update cart item quantity
  * @access  Private (USER)
  */
-router.patch("/items/:productId", updateItem);
+router.patch('/items/:productId', updateItem);
 
 /**
  * @route   DELETE /api/v1/cart/items/:productId
  * @desc    Remove item from cart
  * @access  Private (USER)
  */
-router.delete("/items/:productId", removeItem);
+router.delete('/items/:productId', removeItem);
 
 /**
  * @route   DELETE /api/v1/cart
  * @desc    Clear entire cart
  * @access  Private (USER)
  */
-router.delete("/", clearCartHandler);
+router.delete('/', clearCartHandler);
 
 export default router;

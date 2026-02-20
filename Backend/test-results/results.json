@@ -1,0 +1,2885 @@
+{
+  "config": {
+    "configFile": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/playwright.config.js",
+    "rootDir": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "api-tests",
+        "name": "api-tests",
+        "testDir": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "html",
+        null
+      ],
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "runAgents": "none",
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.58.2",
+    "workers": 4,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:5000",
+      "reuseExistingServer": true,
+      "timeout": 120000,
+      "env": {
+        "NODE_ENV": "test",
+        "PORT": "5000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "admin.e2e.test.js",
+      "file": "admin.e2e.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Admin Operations E2E",
+          "file": "admin.e2e.test.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Register admin account",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 532,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:58.753Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1465b549954508a51411-1d8dad0046c3bdbc8fd3",
+              "file": "admin.e2e.test.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "Login as admin",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 384,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.312Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1465b549954508a51411-722ddc7de5d242d32636",
+              "file": "admin.e2e.test.js",
+              "line": 38,
+              "column": 3
+            }
+          ],
+          "suites": [
+            {
+              "title": "Category Management",
+              "file": "admin.e2e.test.js",
+              "line": 51,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Create a new category",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 68,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 65,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Admin permissions not set, skipping category tests\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.712Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 68,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-b6404bc77211753c5933",
+                  "file": "admin.e2e.test.js",
+                  "line": 52,
+                  "column": 5
+                },
+                {
+                  "title": "List all categories",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 81,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 4,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.801Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 81,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-8103661e7099c7f94aa7",
+                  "file": "admin.e2e.test.js",
+                  "line": 79,
+                  "column": 5
+                },
+                {
+                  "title": "Get category by ID",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 100,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 10,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.830Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 100,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-8df6f3b0362a300e9440",
+                  "file": "admin.e2e.test.js",
+                  "line": 98,
+                  "column": 5
+                },
+                {
+                  "title": "Update category",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 118,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 4,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.856Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 118,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-35a10763afa4c7743c68",
+                  "file": "admin.e2e.test.js",
+                  "line": 116,
+                  "column": 5
+                },
+                {
+                  "title": "Delete category",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 141,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 2,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.873Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 141,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-3c8941bfa4e11845d58e",
+                  "file": "admin.e2e.test.js",
+                  "line": 139,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "User Management",
+              "file": "admin.e2e.test.js",
+              "line": 157,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "List all users",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 171,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 100,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Admin permissions not set, skipping user management tests\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.887Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 171,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-96d430948852b7b71e04",
+                  "file": "admin.e2e.test.js",
+                  "line": 158,
+                  "column": 5
+                },
+                {
+                  "title": "Get user by ID",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 189,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 11,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.995Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 189,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-ebe282c414b8ca8e40db",
+                  "file": "admin.e2e.test.js",
+                  "line": 187,
+                  "column": 5
+                },
+                {
+                  "title": "Update user role",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 207,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 6,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.020Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 207,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-e1e77cb45c5d7db07c31",
+                  "file": "admin.e2e.test.js",
+                  "line": 205,
+                  "column": 5
+                },
+                {
+                  "title": "Search users by email",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 242,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 73,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.052Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 242,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-6bbed730e93588205713",
+                  "file": "admin.e2e.test.js",
+                  "line": 229,
+                  "column": 5
+                },
+                {
+                  "title": "Filter users by role",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 266,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 62,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.152Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 266,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-3eb1770c6a556598f5ad",
+                  "file": "admin.e2e.test.js",
+                  "line": 253,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Audit Logs",
+              "file": "admin.e2e.test.js",
+              "line": 279,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Retrieve audit logs",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 293,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 44,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Audit logs endpoint not available or requires higher permissions\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.265Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 293,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-d135ebd2129eaa80879d",
+                  "file": "admin.e2e.test.js",
+                  "line": 280,
+                  "column": 5
+                },
+                {
+                  "title": "Filter audit logs by action",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                            "line": 315,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "skipped",
+                          "duration": 63,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.328Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/admin.e2e.test.js",
+                                "line": 315,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "1465b549954508a51411-1c8e1eea2c55ce6516aa",
+                  "file": "admin.e2e.test.js",
+                  "line": 302,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "auth.e2e.test.js",
+      "file": "auth.e2e.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Authentication E2E Flow",
+          "file": "auth.e2e.test.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "should register a new user",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 502,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:58.770Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-92ef48ffc1261ed9327d",
+              "file": "auth.e2e.test.js",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "should not register duplicate email",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 71,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.306Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-ab8b1e33305ba37dc41a",
+              "file": "auth.e2e.test.js",
+              "line": 39,
+              "column": 3
+            },
+            {
+              "title": "should login with correct credentials",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 350,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.385Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-0f078fab08cd3f396d83",
+              "file": "auth.e2e.test.js",
+              "line": 49,
+              "column": 3
+            },
+            {
+              "title": "should not login with wrong password",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 215,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.745Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-0137a2927ed52942a1ce",
+              "file": "auth.e2e.test.js",
+              "line": 69,
+              "column": 3
+            },
+            {
+              "title": "should refresh access token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 614,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.982Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-b0ff645c0c430aeaca9f",
+              "file": "auth.e2e.test.js",
+              "line": 80,
+              "column": 3
+            },
+            {
+              "title": "should access protected route with valid token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 90,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.612Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-3a6795b2e29c1678c70c",
+              "file": "auth.e2e.test.js",
+              "line": 113,
+              "column": 3
+            },
+            {
+              "title": "should not access protected route without token",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.712Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "2dbc17323976c927328a-5fd177b7060c45474c4d",
+              "file": "auth.e2e.test.js",
+              "line": 140,
+              "column": 3
+            },
+            {
+              "title": "should logout successfully",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/auth.e2e.test.js",
+                        "line": 171,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 70,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Logout requires httpOnly cookie - skipping test\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.732Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/auth.e2e.test.js",
+                            "line": 171,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2dbc17323976c927328a-25b7efa06405a807d70a",
+              "file": "auth.e2e.test.js",
+              "line": 146,
+              "column": 3
+            },
+            {
+              "title": "should not use token after logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/auth.e2e.test.js",
+                        "line": 192,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "skipped",
+                      "duration": 93,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Access token still valid after logout - this is expected for JWT\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.810Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/auth.e2e.test.js",
+                            "line": 192,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "2dbc17323976c927328a-72339363c790206a42fc",
+              "file": "auth.e2e.test.js",
+              "line": 179,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "marketplace.e2e.test.js",
+      "file": "marketplace.e2e.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Complete Marketplace E2E Flow",
+          "file": "marketplace.e2e.test.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Step 1: Register seller account",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 502,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:58.768Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-b5585d0d83dadfdc0b2d",
+              "file": "marketplace.e2e.test.js",
+              "line": 40,
+              "column": 3
+            },
+            {
+              "title": "Step 2: Login as seller",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 405,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.304Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-a33b69f904e51d69d995",
+              "file": "marketplace.e2e.test.js",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "Step 3: Apply to become seller",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 96,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 56,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Seller application endpoint not available or requires different permissions\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.734Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 96,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-8641ca00a1619d1381ed",
+              "file": "marketplace.e2e.test.js",
+              "line": 64,
+              "column": 3
+            },
+            {
+              "title": "Step 4: Create a store",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 124,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 90,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Store creation requires seller verification or different permissions\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.803Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 124,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-ae6651d3b6766e6d6456",
+              "file": "marketplace.e2e.test.js",
+              "line": 103,
+              "column": 3
+            },
+            {
+              "title": "Step 5: Create a category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 72,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Category creation requires admin role, skipping...\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.914Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-0416205527a07dc0d54d",
+              "file": "marketplace.e2e.test.js",
+              "line": 134,
+              "column": 3
+            },
+            {
+              "title": "Step 6: Create a product",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 171,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 15,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.997Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 171,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-9aea58d9e2636734f469",
+              "file": "marketplace.e2e.test.js",
+              "line": 157,
+              "column": 3
+            },
+            {
+              "title": "Step 7: Verify product is listed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 209,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.027Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 209,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-5a4b89967c5271d18ced",
+              "file": "marketplace.e2e.test.js",
+              "line": 207,
+              "column": 3
+            },
+            {
+              "title": "Step 8: Register buyer account",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 382,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.055Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-72f7574a885a9ca59d9f",
+              "file": "marketplace.e2e.test.js",
+              "line": 222,
+              "column": 3
+            },
+            {
+              "title": "Step 9: Login as buyer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 343,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.454Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-9983f9840a7c606368c6",
+              "file": "marketplace.e2e.test.js",
+              "line": 232,
+              "column": 3
+            },
+            {
+              "title": "Step 10: Search for products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 247,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.807Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 247,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-b78139bdb24416006dbe",
+              "file": "marketplace.e2e.test.js",
+              "line": 245,
+              "column": 3
+            },
+            {
+              "title": "Step 11: Add product to cart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 267,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.823Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 267,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-80fc0986a5c288cd13a2",
+              "file": "marketplace.e2e.test.js",
+              "line": 265,
+              "column": 3
+            },
+            {
+              "title": "Step 12: View cart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 302,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 93,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "Cart is empty - add to cart step may have failed or requires store setup\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.856Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 302,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-aa9b073b0f73a6ed3201",
+              "file": "marketplace.e2e.test.js",
+              "line": 288,
+              "column": 3
+            },
+            {
+              "title": "Step 13: Update cart item quantity",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                        "line": 311,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "skipped",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.963Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/marketplace.e2e.test.js",
+                            "line": 311,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-fd8ef1c97cc309d480f4",
+              "file": "marketplace.e2e.test.js",
+              "line": 309,
+              "column": 3
+            },
+            {
+              "title": "Step 14: Create shipping address",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 228,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:00.984Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-6c28d8064606bddadab7",
+              "file": "marketplace.e2e.test.js",
+              "line": 331,
+              "column": 3
+            },
+            {
+              "title": "Step 15: Clear cart",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 83,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:01.221Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-8afb068a31507608107c",
+              "file": "marketplace.e2e.test.js",
+              "line": 360,
+              "column": 3
+            },
+            {
+              "title": "Step 16: Verify cart is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 102,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:35:01.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "76b2e6f2f6ad7e48850b-cb7445fb20a035a62d79",
+              "file": "marketplace.e2e.test.js",
+              "line": 372,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "product-browse.e2e.test.js",
+      "file": "product-browse.e2e.test.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "Product Browsing and Search E2E",
+          "file": "product-browse.e2e.test.js",
+          "line": 11,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Setup: Register and login seller",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 880,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:58.752Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9e99c300bc02d1890874-d48e8c967cd88f22a2bf",
+              "file": "product-browse.e2e.test.js",
+              "line": 31,
+              "column": 3
+            },
+            {
+              "title": "Setup: Get a category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 22,
+                      "errors": [],
+                      "stdout": [
+                        {
+                          "text": "No categories available, skipping product creation\n"
+                        }
+                      ],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.708Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "9e99c300bc02d1890874-f019851dda9fad4899ed",
+              "file": "product-browse.e2e.test.js",
+              "line": 50,
+              "column": 3
+            },
+            {
+              "title": "Setup: Create sample products",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "location": {
+                        "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                        "line": 68,
+                        "column": 12
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "api-tests",
+                  "projectName": "api-tests",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "skipped",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-02-20T15:34:59.753Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 68,
+                            "column": 12
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "9e99c300bc02d1890874-9fe1fa4e5c89a1a1aa8e",
+              "file": "product-browse.e2e.test.js",
+              "line": 66,
+              "column": 3
+            }
+          ],
+          "suites": [
+            {
+              "title": "Product Listing and Pagination",
+              "file": "product-browse.e2e.test.js",
+              "line": 130,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "List all products with pagination",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 212,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:34:59.775Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-1ec562a22ac280329632",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 131,
+                  "column": 5
+                },
+                {
+                  "title": "Navigate to second page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 205,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.002Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-958fad0dda15d8aa7bf9",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 147,
+                  "column": 5
+                },
+                {
+                  "title": "Change page size",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 199,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.227Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-191c153173f51f9983ef",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 161,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Product Search",
+              "file": "product-browse.e2e.test.js",
+              "line": 176,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Search by product title",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 179,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "skipped",
+                          "duration": 3,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.447Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                                "line": 179,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-a3b903ccfcd89813c5e5",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 177,
+                  "column": 5
+                },
+                {
+                  "title": "Search by brand",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 204,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "skipped",
+                          "duration": 4,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.457Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                                "line": 204,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-9b4c4b7fdbacf01666d6",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 202,
+                  "column": 5
+                },
+                {
+                  "title": "Search with no results",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 196,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.478Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-344f2f17c82f8f78728e",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 221,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Product Filtering",
+              "file": "product-browse.e2e.test.js",
+              "line": 237,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Filter by category",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 240,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "skipped",
+                          "duration": 3,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.687Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                                "line": 240,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-71bbf8239c37a73c78e2",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 238,
+                  "column": 5
+                },
+                {
+                  "title": "Filter by price range",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 216,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.700Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-82ee322df5202c3e75c9",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 264,
+                  "column": 5
+                },
+                {
+                  "title": "Filter by minimum price",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 221,
+                          "errors": [],
+                          "stdout": [
+                            {
+                              "text": "Price filter issue detected: [ \u001b[90mundefined\u001b[39m ]\n"
+                            }
+                          ],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:00.925Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-0c4dbf6be2bbf633e676",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 285,
+                  "column": 5
+                },
+                {
+                  "title": "Filter by maximum price",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 171,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:01.159Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-2734ad4db44e094516dc",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 307,
+                  "column": 5
+                },
+                {
+                  "title": "Filter by status",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 188,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:01.338Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-28b424e76ce4c88364df",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 325,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Product Sorting",
+              "file": "product-browse.e2e.test.js",
+              "line": 346,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Sort by price ascending",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 196,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:01.536Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-e3f34aee9de3e6c6d0fb",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 347,
+                  "column": 5
+                },
+                {
+                  "title": "Sort by price descending",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 205,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:01.740Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-f91807cf7ff4da810b85",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 370,
+                  "column": 5
+                },
+                {
+                  "title": "Sort by created date",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 233,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:01.954Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-b884d4bd81f1bc4dd92c",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 393,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Product Details",
+              "file": "product-browse.e2e.test.js",
+              "line": 409,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "View product details",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 412,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "skipped",
+                          "duration": 2,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.198Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                                "line": 412,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-28d4e551f89210e564f1",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 410,
+                  "column": 5
+                },
+                {
+                  "title": "View product with invalid ID",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 9,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.208Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-7772d1987876eb4b33f1",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 426,
+                  "column": 5
+                },
+                {
+                  "title": "View non-existent product",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 45,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.223Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-6f29ddc003f8d33c0f11",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 432,
+                  "column": 5
+                }
+              ]
+            },
+            {
+              "title": "Combined Filters",
+              "file": "product-browse.e2e.test.js",
+              "line": 440,
+              "column": 8,
+              "specs": [
+                {
+                  "title": "Search with category filter",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "location": {
+                            "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                            "line": 443,
+                            "column": 14
+                          }
+                        }
+                      ],
+                      "expectedStatus": "skipped",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "skipped",
+                          "duration": 2,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.274Z",
+                          "annotations": [
+                            {
+                              "type": "skip",
+                              "location": {
+                                "file": "/Users/aryanvibhuti/Desktop/Projects/DevOps/Backend/tests/e2e/product-browse.e2e.test.js",
+                                "line": 443,
+                                "column": 14
+                              }
+                            }
+                          ],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "skipped"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-c7656f03f39103457526",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 441,
+                  "column": 5
+                },
+                {
+                  "title": "Price filter with sorting",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 210,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.282Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-7b2eca7f6a8d24f8836a",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 461,
+                  "column": 5
+                },
+                {
+                  "title": "Search with price filter and sorting",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "api-tests",
+                      "projectName": "api-tests",
+                      "results": [
+                        {
+                          "workerIndex": 3,
+                          "parallelIndex": 3,
+                          "status": "passed",
+                          "duration": 199,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-02-20T15:35:02.499Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "9e99c300bc02d1890874-8b1d1eda0144f96f5543",
+                  "file": "product-browse.e2e.test.js",
+                  "line": 478,
+                  "column": 5
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-02-20T15:34:47.513Z",
+    "duration": 15239.149000000001,
+    "expected": 34,
+    "skipped": 28,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

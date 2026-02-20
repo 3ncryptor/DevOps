@@ -1,17 +1,17 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
-  initiatePaymentHandler,
-  processPaymentHandler,
-  quickPayHandler,
-  getPayment,
-  getMyPayments,
-  getPaymentsForOrder,
-  refundPaymentHandler,
-  getPaymentStatsHandler
-} from "../../controllers/payment.controller.js";
-import { authenticate } from "../../middlewares/auth.middleware.js";
-import { authorizeRoles } from "../../middlewares/role.middleware.js";
-import ROLES from "../../constants/roles.js";
+    initiatePaymentHandler,
+    processPaymentHandler,
+    quickPayHandler,
+    getPayment,
+    getMyPayments,
+    getPaymentsForOrder,
+    refundPaymentHandler,
+    getPaymentStatsHandler,
+} from '../../controllers/payment.controller.js';
+import { authenticate } from '../../middlewares/auth.middleware.js';
+import { authorizeRoles } from '../../middlewares/role.middleware.js';
+import ROLES from '../../constants/roles.js';
 
 const router = Router();
 
@@ -25,33 +25,21 @@ router.use(authenticate);
  * @desc    Initiate payment for an order
  * @access  Private (USER)
  */
-router.post(
-  "/initiate",
-  authorizeRoles(ROLES.USER),
-  initiatePaymentHandler
-);
+router.post('/initiate', authorizeRoles(ROLES.USER), initiatePaymentHandler);
 
 /**
  * @route   POST /api/v1/payments/quick-pay
  * @desc    Quick pay - initiate and process in one step
  * @access  Private (USER)
  */
-router.post(
-  "/quick-pay",
-  authorizeRoles(ROLES.USER),
-  quickPayHandler
-);
+router.post('/quick-pay', authorizeRoles(ROLES.USER), quickPayHandler);
 
 /**
  * @route   GET /api/v1/payments/my-payments
  * @desc    Get my payments
  * @access  Private (USER)
  */
-router.get(
-  "/my-payments",
-  authorizeRoles(ROLES.USER),
-  getMyPayments
-);
+router.get('/my-payments', authorizeRoles(ROLES.USER), getMyPayments);
 
 /**
  * @route   POST /api/v1/payments/:paymentId/process
@@ -59,9 +47,9 @@ router.get(
  * @access  Private (USER)
  */
 router.post(
-  "/:paymentId/process",
-  authorizeRoles(ROLES.USER),
-  processPaymentHandler
+    '/:paymentId/process',
+    authorizeRoles(ROLES.USER),
+    processPaymentHandler
 );
 
 /**
@@ -70,9 +58,9 @@ router.post(
  * @access  Private (USER, ADMIN)
  */
 router.get(
-  "/order/:orderId",
-  authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
-  getPaymentsForOrder
+    '/order/:orderId',
+    authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
+    getPaymentsForOrder
 );
 
 /**
@@ -81,9 +69,9 @@ router.get(
  * @access  Private (Owner or ADMIN)
  */
 router.get(
-  "/:paymentId",
-  authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
-  getPayment
+    '/:paymentId',
+    authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
+    getPayment
 );
 
 // ============== ADMIN ROUTES ==============
@@ -93,11 +81,7 @@ router.get(
  * @desc    Get payment statistics
  * @access  Private (ADMIN)
  */
-router.get(
-  "/stats",
-  authorizeRoles(ROLES.SUPER_ADMIN),
-  getPaymentStatsHandler
-);
+router.get('/stats', authorizeRoles(ROLES.SUPER_ADMIN), getPaymentStatsHandler);
 
 /**
  * @route   POST /api/v1/payments/:paymentId/refund
@@ -105,9 +89,9 @@ router.get(
  * @access  Private (ADMIN)
  */
 router.post(
-  "/:paymentId/refund",
-  authorizeRoles(ROLES.SUPER_ADMIN),
-  refundPaymentHandler
+    '/:paymentId/refund',
+    authorizeRoles(ROLES.SUPER_ADMIN),
+    refundPaymentHandler
 );
 
 export default router;

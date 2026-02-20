@@ -3,24 +3,24 @@
  * Handles user profile, addresses, and account management
  */
 
-import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { asyncHandler } from '../utils/asyncHandler.js';
+import { ApiResponse } from '../utils/ApiResponse.js';
 import {
-  getUserProfile,
-  updateUserProfile,
-  getUserAddresses,
-  addAddress,
-  updateAddress,
-  deleteAddress,
-  setDefaultAddress
-} from "../services/user.service.js";
+    getUserProfile,
+    updateUserProfile,
+    getUserAddresses,
+    addAddress,
+    updateAddress,
+    deleteAddress,
+    setDefaultAddress,
+} from '../services/user.service.js';
 
 /**
  * Extract client info from request
  */
 const getClientInfo = (req) => ({
-  ipAddress: req.ip || req.connection?.remoteAddress,
-  userAgent: req.get("User-Agent")
+    ipAddress: req.ip || req.connection?.remoteAddress,
+    userAgent: req.get('User-Agent'),
 });
 
 // ============== PROFILE ENDPOINTS ==============
@@ -31,11 +31,11 @@ const getClientInfo = (req) => ({
  * @access  Private
  */
 export const getMe = asyncHandler(async (req, res) => {
-  const result = await getUserProfile(req.user.id);
+    const result = await getUserProfile(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, result, "Profile retrieved successfully"));
+    res.status(200).json(
+        new ApiResponse(200, result, 'Profile retrieved successfully')
+    );
 });
 
 /**
@@ -44,18 +44,18 @@ export const getMe = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const updateMe = asyncHandler(async (req, res) => {
-  const { ipAddress, userAgent } = getClientInfo(req);
+    const { ipAddress, userAgent } = getClientInfo(req);
 
-  const profile = await updateUserProfile(
-    req.user.id,
-    req.body,
-    ipAddress,
-    userAgent
-  );
+    const profile = await updateUserProfile(
+        req.user.id,
+        req.body,
+        ipAddress,
+        userAgent
+    );
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, profile, "Profile updated successfully"));
+    res.status(200).json(
+        new ApiResponse(200, profile, 'Profile updated successfully')
+    );
 });
 
 // ============== ADDRESS ENDPOINTS ==============
@@ -66,11 +66,11 @@ export const updateMe = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const getMyAddresses = asyncHandler(async (req, res) => {
-  const addresses = await getUserAddresses(req.user.id);
+    const addresses = await getUserAddresses(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, addresses, "Addresses retrieved successfully"));
+    res.status(200).json(
+        new ApiResponse(200, addresses, 'Addresses retrieved successfully')
+    );
 });
 
 /**
@@ -79,11 +79,11 @@ export const getMyAddresses = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const addNewAddress = asyncHandler(async (req, res) => {
-  const address = await addAddress(req.user.id, req.body);
+    const address = await addAddress(req.user.id, req.body);
 
-  res
-    .status(201)
-    .json(new ApiResponse(201, address, "Address added successfully"));
+    res.status(201).json(
+        new ApiResponse(201, address, 'Address added successfully')
+    );
 });
 
 /**
@@ -92,13 +92,13 @@ export const addNewAddress = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const updateAddressHandler = asyncHandler(async (req, res) => {
-  const { addressId } = req.params;
+    const { addressId } = req.params;
 
-  const address = await updateAddress(req.user.id, addressId, req.body);
+    const address = await updateAddress(req.user.id, addressId, req.body);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, address, "Address updated successfully"));
+    res.status(200).json(
+        new ApiResponse(200, address, 'Address updated successfully')
+    );
 });
 
 /**
@@ -107,13 +107,13 @@ export const updateAddressHandler = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const deleteAddressHandler = asyncHandler(async (req, res) => {
-  const { addressId } = req.params;
+    const { addressId } = req.params;
 
-  const result = await deleteAddress(req.user.id, addressId);
+    const result = await deleteAddress(req.user.id, addressId);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, result, "Address deleted successfully"));
+    res.status(200).json(
+        new ApiResponse(200, result, 'Address deleted successfully')
+    );
 });
 
 /**
@@ -122,21 +122,21 @@ export const deleteAddressHandler = asyncHandler(async (req, res) => {
  * @access  Private
  */
 export const setDefaultAddressHandler = asyncHandler(async (req, res) => {
-  const { addressId } = req.params;
+    const { addressId } = req.params;
 
-  const address = await setDefaultAddress(req.user.id, addressId);
+    const address = await setDefaultAddress(req.user.id, addressId);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, address, "Default address set successfully"));
+    res.status(200).json(
+        new ApiResponse(200, address, 'Default address set successfully')
+    );
 });
 
 export default {
-  getMe,
-  updateMe,
-  getMyAddresses,
-  addNewAddress,
-  updateAddressHandler,
-  deleteAddressHandler,
-  setDefaultAddressHandler
+    getMe,
+    updateMe,
+    getMyAddresses,
+    addNewAddress,
+    updateAddressHandler,
+    deleteAddressHandler,
+    setDefaultAddressHandler,
 };

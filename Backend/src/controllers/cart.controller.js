@@ -1,15 +1,15 @@
-import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { asyncHandler } from '../utils/asyncHandler.js';
+import { ApiResponse } from '../utils/ApiResponse.js';
 import {
-  getCartWithDetails,
-  addToCart,
-  updateCartItem,
-  removeFromCart,
-  clearCart,
-  validateCartForCheckout,
-  groupCartByStore,
-  getCartItemCount
-} from "../services/cart.service.js";
+    getCartWithDetails,
+    addToCart,
+    updateCartItem,
+    removeFromCart,
+    clearCart,
+    validateCartForCheckout,
+    groupCartByStore,
+    getCartItemCount,
+} from '../services/cart.service.js';
 
 /**
  * @desc    Get user's cart
@@ -17,11 +17,9 @@ import {
  * @access  Private
  */
 const getCart = asyncHandler(async (req, res) => {
-  const cart = await getCartWithDetails(req.user.id);
+    const cart = await getCartWithDetails(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, cart, "Cart retrieved"));
+    res.status(200).json(new ApiResponse(200, cart, 'Cart retrieved'));
 });
 
 /**
@@ -30,11 +28,11 @@ const getCart = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const getCount = asyncHandler(async (req, res) => {
-  const count = await getCartItemCount(req.user.id);
+    const count = await getCartItemCount(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, { count }, "Cart count retrieved"));
+    res.status(200).json(
+        new ApiResponse(200, { count }, 'Cart count retrieved')
+    );
 });
 
 /**
@@ -43,17 +41,17 @@ const getCount = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const addItem = asyncHandler(async (req, res) => {
-  const { productId, quantity = 1 } = req.body;
+    const { productId, quantity = 1 } = req.body;
 
-  if (!productId) {
-    return res.status(400).json(new ApiResponse(400, null, "Product ID is required"));
-  }
+    if (!productId) {
+        return res
+            .status(400)
+            .json(new ApiResponse(400, null, 'Product ID is required'));
+    }
 
-  const cart = await addToCart(req.user.id, productId, parseInt(quantity));
+    const cart = await addToCart(req.user.id, productId, parseInt(quantity));
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, cart, "Item added to cart"));
+    res.status(200).json(new ApiResponse(200, cart, 'Item added to cart'));
 });
 
 /**
@@ -62,18 +60,22 @@ const addItem = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const updateItem = asyncHandler(async (req, res) => {
-  const { productId } = req.params;
-  const { quantity } = req.body;
+    const { productId } = req.params;
+    const { quantity } = req.body;
 
-  if (!quantity || quantity < 1) {
-    return res.status(400).json(new ApiResponse(400, null, "Valid quantity is required"));
-  }
+    if (!quantity || quantity < 1) {
+        return res
+            .status(400)
+            .json(new ApiResponse(400, null, 'Valid quantity is required'));
+    }
 
-  const cart = await updateCartItem(req.user.id, productId, parseInt(quantity));
+    const cart = await updateCartItem(
+        req.user.id,
+        productId,
+        parseInt(quantity)
+    );
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, cart, "Cart updated"));
+    res.status(200).json(new ApiResponse(200, cart, 'Cart updated'));
 });
 
 /**
@@ -82,13 +84,11 @@ const updateItem = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const removeItem = asyncHandler(async (req, res) => {
-  const { productId } = req.params;
+    const { productId } = req.params;
 
-  const cart = await removeFromCart(req.user.id, productId);
+    const cart = await removeFromCart(req.user.id, productId);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, cart, "Item removed from cart"));
+    res.status(200).json(new ApiResponse(200, cart, 'Item removed from cart'));
 });
 
 /**
@@ -97,11 +97,9 @@ const removeItem = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const clearCartHandler = asyncHandler(async (req, res) => {
-  const cart = await clearCart(req.user.id);
+    const cart = await clearCart(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, cart, "Cart cleared"));
+    res.status(200).json(new ApiResponse(200, cart, 'Cart cleared'));
 });
 
 /**
@@ -110,16 +108,16 @@ const clearCartHandler = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const validateCart = asyncHandler(async (req, res) => {
-  const validation = await validateCartForCheckout(req.user.id);
+    const validation = await validateCartForCheckout(req.user.id);
 
-  const statusCode = validation.isValid ? 200 : 422;
-  const message = validation.isValid 
-    ? "Cart is valid for checkout" 
-    : "Some items have issues";
+    const statusCode = validation.isValid ? 200 : 422;
+    const message = validation.isValid
+        ? 'Cart is valid for checkout'
+        : 'Some items have issues';
 
-  res
-    .status(statusCode)
-    .json(new ApiResponse(statusCode, validation, message));
+    res.status(statusCode).json(
+        new ApiResponse(statusCode, validation, message)
+    );
 });
 
 /**
@@ -128,20 +126,20 @@ const validateCart = asyncHandler(async (req, res) => {
  * @access  Private
  */
 const getCartByStore = asyncHandler(async (req, res) => {
-  const grouped = await groupCartByStore(req.user.id);
+    const grouped = await groupCartByStore(req.user.id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, grouped, "Cart grouped by store"));
+    res.status(200).json(
+        new ApiResponse(200, grouped, 'Cart grouped by store')
+    );
 });
 
 export {
-  getCart,
-  getCount,
-  addItem,
-  updateItem,
-  removeItem,
-  clearCartHandler,
-  validateCart,
-  getCartByStore
+    getCart,
+    getCount,
+    addItem,
+    updateItem,
+    removeItem,
+    clearCartHandler,
+    validateCart,
+    getCartByStore,
 };

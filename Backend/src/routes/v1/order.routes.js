@@ -1,20 +1,24 @@
-import { Router } from "express";
+import { Router } from 'express';
 import {
-  createOrder,
-  getMyOrders,
-  getOrder,
-  cancelOrderHandler,
-  payOrder,
-  getStoreOrdersHandler,
-  getStoreOrderStats,
-  processOrderHandler,
-  shipOrderHandler,
-  deliverOrderHandler
-} from "../../controllers/order.controller.js";
-import { authenticate } from "../../middlewares/auth.middleware.js";
-import { authorizeRoles } from "../../middlewares/role.middleware.js";
-import { requireApprovedSeller, checkOrderAccess, checkStoreOwnership } from "../../middlewares/ownership.middleware.js";
-import ROLES from "../../constants/roles.js";
+    createOrder,
+    getMyOrders,
+    getOrder,
+    cancelOrderHandler,
+    payOrder,
+    getStoreOrdersHandler,
+    getStoreOrderStats,
+    processOrderHandler,
+    shipOrderHandler,
+    deliverOrderHandler,
+} from '../../controllers/order.controller.js';
+import { authenticate } from '../../middlewares/auth.middleware.js';
+import { authorizeRoles } from '../../middlewares/role.middleware.js';
+import {
+    requireApprovedSeller,
+    checkOrderAccess,
+    checkStoreOwnership,
+} from '../../middlewares/ownership.middleware.js';
+import ROLES from '../../constants/roles.js';
 
 const router = Router();
 
@@ -28,33 +32,21 @@ router.use(authenticate);
  * @desc    Create orders from cart (checkout)
  * @access  Private (USER)
  */
-router.post(
-  "/",
-  authorizeRoles(ROLES.USER),
-  createOrder
-);
+router.post('/', authorizeRoles(ROLES.USER), createOrder);
 
 /**
  * @route   GET /api/v1/orders/my-orders
  * @desc    Get my orders
  * @access  Private (USER)
  */
-router.get(
-  "/my-orders",
-  authorizeRoles(ROLES.USER),
-  getMyOrders
-);
+router.get('/my-orders', authorizeRoles(ROLES.USER), getMyOrders);
 
 /**
  * @route   GET /api/v1/orders/:orderId
  * @desc    Get order by ID
  * @access  Private (Owner or SELLER of store or ADMIN)
  */
-router.get(
-  "/:orderId",
-  checkOrderAccess,
-  getOrder
-);
+router.get('/:orderId', checkOrderAccess, getOrder);
 
 /**
  * @route   POST /api/v1/orders/:orderId/cancel
@@ -62,9 +54,9 @@ router.get(
  * @access  Private (Owner or ADMIN)
  */
 router.post(
-  "/:orderId/cancel",
-  authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
-  cancelOrderHandler
+    '/:orderId/cancel',
+    authorizeRoles(ROLES.USER, ROLES.SUPER_ADMIN),
+    cancelOrderHandler
 );
 
 /**
@@ -72,11 +64,7 @@ router.post(
  * @desc    Pay for order (mock payment)
  * @access  Private (Owner)
  */
-router.post(
-  "/:orderId/pay",
-  authorizeRoles(ROLES.USER),
-  payOrder
-);
+router.post('/:orderId/pay', authorizeRoles(ROLES.USER), payOrder);
 
 // ============== SELLER ROUTES ==============
 
@@ -86,11 +74,11 @@ router.post(
  * @access  Private (SELLER - store owner)
  */
 router.get(
-  "/store/:storeId",
-  authorizeRoles(ROLES.SELLER),
-  requireApprovedSeller,
-  checkStoreOwnership,
-  getStoreOrdersHandler
+    '/store/:storeId',
+    authorizeRoles(ROLES.SELLER),
+    requireApprovedSeller,
+    checkStoreOwnership,
+    getStoreOrdersHandler
 );
 
 /**
@@ -99,11 +87,11 @@ router.get(
  * @access  Private (SELLER - store owner)
  */
 router.get(
-  "/store/:storeId/stats",
-  authorizeRoles(ROLES.SELLER),
-  requireApprovedSeller,
-  checkStoreOwnership,
-  getStoreOrderStats
+    '/store/:storeId/stats',
+    authorizeRoles(ROLES.SELLER),
+    requireApprovedSeller,
+    checkStoreOwnership,
+    getStoreOrderStats
 );
 
 /**
@@ -112,10 +100,10 @@ router.get(
  * @access  Private (SELLER)
  */
 router.post(
-  "/:orderId/process",
-  authorizeRoles(ROLES.SELLER),
-  requireApprovedSeller,
-  processOrderHandler
+    '/:orderId/process',
+    authorizeRoles(ROLES.SELLER),
+    requireApprovedSeller,
+    processOrderHandler
 );
 
 /**
@@ -124,10 +112,10 @@ router.post(
  * @access  Private (SELLER)
  */
 router.post(
-  "/:orderId/ship",
-  authorizeRoles(ROLES.SELLER),
-  requireApprovedSeller,
-  shipOrderHandler
+    '/:orderId/ship',
+    authorizeRoles(ROLES.SELLER),
+    requireApprovedSeller,
+    shipOrderHandler
 );
 
 /**
@@ -136,9 +124,9 @@ router.post(
  * @access  Private (SELLER or ADMIN)
  */
 router.post(
-  "/:orderId/deliver",
-  authorizeRoles(ROLES.SELLER, ROLES.SUPER_ADMIN),
-  deliverOrderHandler
+    '/:orderId/deliver',
+    authorizeRoles(ROLES.SELLER, ROLES.SUPER_ADMIN),
+    deliverOrderHandler
 );
 
 export default router;

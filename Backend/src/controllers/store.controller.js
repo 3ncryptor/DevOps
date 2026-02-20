@@ -1,22 +1,22 @@
-import { asyncHandler } from "../utils/asyncHandler.js";
-import { ApiResponse } from "../utils/ApiResponse.js";
+import { asyncHandler } from '../utils/asyncHandler.js';
+import { ApiResponse } from '../utils/ApiResponse.js';
 import {
-  createStore,
-  getStoreById,
-  getStoreBySlug,
-  getStoresBySeller,
-  updateStore,
-  listStores,
-  closeStore,
-  getStoreWithStats
-} from "../services/store.service.js";
+    createStore,
+    getStoreById,
+    getStoreBySlug,
+    getStoresBySeller,
+    updateStore,
+    listStores,
+    closeStore,
+    getStoreWithStats,
+} from '../services/store.service.js';
 
 /**
  * Extract client info from request
  */
 const getClientInfo = (req) => ({
-  ipAddress: req.ip || req.connection?.remoteAddress,
-  userAgent: req.get("User-Agent")
+    ipAddress: req.ip || req.connection?.remoteAddress,
+    userAgent: req.get('User-Agent'),
 });
 
 // ============== SELLER ENDPOINTS ==============
@@ -27,12 +27,17 @@ const getClientInfo = (req) => ({
  * @access  Private (SELLER role, approved only)
  */
 const createStoreHandler = asyncHandler(async (req, res) => {
-  const { ipAddress, userAgent } = getClientInfo(req);
-  const store = await createStore(req.seller._id, req.body, ipAddress, userAgent);
+    const { ipAddress, userAgent } = getClientInfo(req);
+    const store = await createStore(
+        req.seller._id,
+        req.body,
+        ipAddress,
+        userAgent
+    );
 
-  res
-    .status(201)
-    .json(new ApiResponse(201, store, "Store created successfully"));
+    res.status(201).json(
+        new ApiResponse(201, store, 'Store created successfully')
+    );
 });
 
 /**
@@ -41,11 +46,9 @@ const createStoreHandler = asyncHandler(async (req, res) => {
  * @access  Private (SELLER role)
  */
 const getMyStores = asyncHandler(async (req, res) => {
-  const stores = await getStoresBySeller(req.seller._id);
+    const stores = await getStoresBySeller(req.seller._id);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, stores, "Stores retrieved"));
+    res.status(200).json(new ApiResponse(200, stores, 'Stores retrieved'));
 });
 
 /**
@@ -54,12 +57,10 @@ const getMyStores = asyncHandler(async (req, res) => {
  * @access  Private (SELLER role)
  */
 const getMyStoreById = asyncHandler(async (req, res) => {
-  // req.store is attached by ownership middleware
-  const store = await getStoreWithStats(req.params.storeId);
+    // req.store is attached by ownership middleware
+    const store = await getStoreWithStats(req.params.storeId);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, store, "Store retrieved"));
+    res.status(200).json(new ApiResponse(200, store, 'Store retrieved'));
 });
 
 /**
@@ -68,18 +69,18 @@ const getMyStoreById = asyncHandler(async (req, res) => {
  * @access  Private (SELLER role)
  */
 const updateMyStore = asyncHandler(async (req, res) => {
-  const { ipAddress, userAgent } = getClientInfo(req);
-  const store = await updateStore(
-    req.params.storeId,
-    req.seller._id,
-    req.body,
-    ipAddress,
-    userAgent
-  );
+    const { ipAddress, userAgent } = getClientInfo(req);
+    const store = await updateStore(
+        req.params.storeId,
+        req.seller._id,
+        req.body,
+        ipAddress,
+        userAgent
+    );
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, store, "Store updated successfully"));
+    res.status(200).json(
+        new ApiResponse(200, store, 'Store updated successfully')
+    );
 });
 
 /**
@@ -88,17 +89,17 @@ const updateMyStore = asyncHandler(async (req, res) => {
  * @access  Private (SELLER role)
  */
 const closeMyStore = asyncHandler(async (req, res) => {
-  const { ipAddress, userAgent } = getClientInfo(req);
-  const store = await closeStore(
-    req.params.storeId,
-    req.seller._id,
-    ipAddress,
-    userAgent
-  );
+    const { ipAddress, userAgent } = getClientInfo(req);
+    const store = await closeStore(
+        req.params.storeId,
+        req.seller._id,
+        ipAddress,
+        userAgent
+    );
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, store, "Store closed successfully"));
+    res.status(200).json(
+        new ApiResponse(200, store, 'Store closed successfully')
+    );
 });
 
 // ============== PUBLIC ENDPOINTS ==============
@@ -109,18 +110,16 @@ const closeMyStore = asyncHandler(async (req, res) => {
  * @access  Public
  */
 const listAllStores = asyncHandler(async (req, res) => {
-  const { search, city, page = 1, limit = 20 } = req.query;
+    const { search, city, page = 1, limit = 20 } = req.query;
 
-  const result = await listStores({
-    search,
-    city,
-    page: parseInt(page),
-    limit: parseInt(limit)
-  });
+    const result = await listStores({
+        search,
+        city,
+        page: parseInt(page),
+        limit: parseInt(limit),
+    });
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, result, "Stores retrieved"));
+    res.status(200).json(new ApiResponse(200, result, 'Stores retrieved'));
 });
 
 /**
@@ -129,11 +128,9 @@ const listAllStores = asyncHandler(async (req, res) => {
  * @access  Public
  */
 const getStoreBySlugHandler = asyncHandler(async (req, res) => {
-  const store = await getStoreBySlug(req.params.slug);
+    const store = await getStoreBySlug(req.params.slug);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, store, "Store retrieved"));
+    res.status(200).json(new ApiResponse(200, store, 'Store retrieved'));
 });
 
 /**
@@ -142,22 +139,20 @@ const getStoreBySlugHandler = asyncHandler(async (req, res) => {
  * @access  Public
  */
 const getStoreByIdHandler = asyncHandler(async (req, res) => {
-  const store = await getStoreWithStats(req.params.storeId);
+    const store = await getStoreWithStats(req.params.storeId);
 
-  res
-    .status(200)
-    .json(new ApiResponse(200, store, "Store retrieved"));
+    res.status(200).json(new ApiResponse(200, store, 'Store retrieved'));
 });
 
 export {
-  // Seller endpoints
-  createStoreHandler,
-  getMyStores,
-  getMyStoreById,
-  updateMyStore,
-  closeMyStore,
-  // Public endpoints
-  listAllStores,
-  getStoreBySlugHandler,
-  getStoreByIdHandler
+    // Seller endpoints
+    createStoreHandler,
+    getMyStores,
+    getMyStoreById,
+    updateMyStore,
+    closeMyStore,
+    // Public endpoints
+    listAllStores,
+    getStoreBySlugHandler,
+    getStoreByIdHandler,
 };
