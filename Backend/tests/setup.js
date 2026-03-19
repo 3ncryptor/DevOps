@@ -7,8 +7,8 @@ beforeAll(async () => {
   // Start in-memory MongoDB Replica Set
   mongoServer = await MongoMemoryReplSet.create({ replSet: { count: 1 } });
   const mongoUri = mongoServer.getUri();
-  
-  // Need to set MONGODB_URI before tests run
+
+  // Set env vars before tests run
   process.env.MONGODB_URI = mongoUri;
   process.env.JWT_SECRET = 'test-secret';
   process.env.NODE_ENV = 'test';
@@ -20,7 +20,7 @@ beforeAll(async () => {
 
   // Connect Mongoose to the in-memory db
   await mongoose.connect(mongoUri, {
-    dbName: 'zentra-test'
+    dbName: 'zentra-test',
   });
 });
 
@@ -39,11 +39,8 @@ afterEach(async () => {
   if (mongoose.connection.readyState !== 0) {
     const collections = mongoose.connection.collections;
     for (const key in collections) {
-      const collection = collections[key];
-      await collection.deleteMany({});
+      await collections[key].deleteMany({});
     }
   }
-  
-  // Clear all mocks
-  jest.clearAllMocks();
+  // Note: jest.clearAllMocks() is handled automatically by clearMocks: true in jest.config.js
 });

@@ -31,6 +31,6 @@ describe('Health & Info API Integration', () => {
         
         expect(response.status).toBe(200);
         expect(response.body.openapi).toBe('3.0.0');
-        expect(response.body.info.title).toBe('Zentra Commerce API');
+        expect(response.body.info.title).toBe('E-Commerce Platform API');
     });
 });
