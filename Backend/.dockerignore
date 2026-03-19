@@ -1,0 +1,13 @@
+node_modules
+npm-debug.log
+logs
+Dockerfile
+.dockerignore
+.git
+.gitignore
+.prettierrc
+.prettierignore
+.env
+coverage
+test-results
+playwright-report
