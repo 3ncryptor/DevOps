@@ -11,6 +11,10 @@ beforeAll(async () => {
   // Set env vars before tests run
   process.env.MONGODB_URI = mongoUri;
   process.env.JWT_SECRET = 'test-secret';
+  process.env.ACCESS_TOKEN_SECRET = 'test-access-secret';
+  process.env.REFRESH_TOKEN_SECRET = 'test-refresh-secret';
+  process.env.ACCESS_TOKEN_EXPIRY = '15m';
+  process.env.REFRESH_TOKEN_EXPIRY = '7d';
   process.env.NODE_ENV = 'test';
 
   // Make sure we have a clean connection
