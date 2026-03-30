@@ -1,0 +1,5 @@
+node_modules
+
+# Next.js build output & cache (never commit)
+Frontend/.next/
+.next/
