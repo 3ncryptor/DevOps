@@ -23,7 +23,7 @@ fi
 echo "Running staged lint checks..."
 
 set +e
-lint_output=$(npx lint-staged 2>&1)
+lint_output=$(lint-staged 2>&1)
 lint_exit_code=$?
 set -e
 
