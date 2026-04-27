@@ -112,9 +112,12 @@ const registerUser = async (
     }
 
     // Validate role
-    const validRoles = ['USER', 'SELLER'];
+    const validRoles = ['USER', 'SELLER', 'SUPER_ADMIN'];
     if (role && !validRoles.includes(role)) {
-        throw new ApiError(400, 'Invalid role. Allowed roles: USER, SELLER');
+        throw new ApiError(
+            400,
+            'Invalid role. Allowed roles: USER, SELLER, SUPER_ADMIN'
+        );
     }
 
     const passwordHash = await hashPassword(password);

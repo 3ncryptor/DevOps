@@ -17,6 +17,7 @@ import {
     getProductById,
     getProductsByStoreHandler,
 } from '../../controllers/product.controller.js';
+import { getAllCategories } from '../../controllers/admin.controller.js';
 import {
     authenticate,
     optionalAuth,
@@ -31,6 +32,13 @@ const router = Router();
 // ============== PUBLIC ROUTES ==============
 
 /**
+ * @route   GET /api/v1/products/categories
+ * @desc    Get all categories (public — needed for product filters and seller forms)
+ * @access  Public
+ */
+router.get('/categories', getAllCategories);
+
+/**
  * @route   GET /api/v1/products
  * @desc    Search products
  * @access  Public
@@ -43,13 +51,6 @@ router.get('/', optionalAuth, searchProductsHandler);
  * @access  Public
  */
 router.get('/store/:storeId', optionalAuth, getProductsByStoreHandler);
-
-/**
- * @route   GET /api/v1/products/:productId
- * @desc    Get product by ID (public - only published)
- * @access  Public
- */
-router.get('/:productId', optionalAuth, getProductById);
 
 // ============== SELLER ROUTES ==============
 
@@ -80,6 +81,15 @@ router.get('/low-stock', authenticate, requireApprovedSeller, getLowStock);
  * @access  Private (SELLER)
  */
 router.get('/inventory', authenticate, requireApprovedSeller, getInventoryList);
+
+// ============== PUBLIC ROUTES (parameterised — must come after static paths) ==============
+
+/**
+ * @route   GET /api/v1/products/:productId
+ * @desc    Get product by ID (public - only published)
+ * @access  Public
+ */
+router.get('/:productId', optionalAuth, getProductById);
 
 /**
  * @route   GET /api/v1/products/my-products/:productId

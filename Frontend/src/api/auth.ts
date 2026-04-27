@@ -1,50 +1,50 @@
 import { apiClient } from "./client";
-import { AuthUser } from "@/store/useAuthStore";
+import type { ApiResponse } from "@/types/common";
+import type {
+  AuthUser,
+  AuthResponse,
+  LoginPayload,
+  RegisterPayload,
+  ChangePasswordPayload,
+} from "@/types/auth";
 
-// standard Zentra API response interface
-export interface ApiResponse<T> {
-  statusCode: number;
-  data: T;
-  message: string;
-  success: boolean;
-}
-
-// Request and Response interfaces
-export interface LoginData {
-  email: string;
-  password: string;
-}
-
-export interface RegisterData {
-  email: string;
-  password: string;
-  role: "USER" | "SELLER";
-}
-
-export interface AuthResponse {
-  user: AuthUser;
-  accessToken: string;
-}
-
-/**
- * Authentication service calls
- */
 export const authService = {
-  // Login user
-  login: async (credentials: LoginData) => {
-    const response = await apiClient.post<ApiResponse<AuthResponse>>(
+  login: async (credentials: LoginPayload) => {
+    const res = await apiClient.post<ApiResponse<AuthResponse>>(
       "/auth/login",
       credentials,
     );
-    return response.data;
+    return res.data;
   },
 
-  // Register new user (returns user without tokens, as per backend logic they must login after optionally but in this app let's check response)
-  register: async (credentials: RegisterData) => {
-    const response = await apiClient.post<ApiResponse<AuthUser>>(
+  register: async (credentials: RegisterPayload) => {
+    const res = await apiClient.post<ApiResponse<AuthUser>>(
       "/auth/register",
       credentials,
     );
-    return response.data;
+    return res.data;
+  },
+
+  me: async () => {
+    const res = await apiClient.get<ApiResponse<AuthUser>>("/auth/me");
+    return res.data;
+  },
+
+  logout: async () => {
+    const res = await apiClient.post<ApiResponse<null>>("/auth/logout");
+    return res.data;
+  },
+
+  logoutAll: async () => {
+    const res = await apiClient.post<ApiResponse<null>>("/auth/logout-all");
+    return res.data;
+  },
+
+  changePassword: async (payload: ChangePasswordPayload) => {
+    const res = await apiClient.post<ApiResponse<null>>(
+      "/auth/change-password",
+      payload,
+    );
+    return res.data;
   },
 };

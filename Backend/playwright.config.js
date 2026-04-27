@@ -57,12 +57,12 @@ export default defineConfig({
   // Run your local dev server before starting the tests
   webServer: process.env.CI ? undefined : {
     command: 'npm run dev',
-    url: 'http://localhost:5000',
+    url: 'http://localhost:8000',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,
     env: {
       NODE_ENV: 'test',
-      PORT: '5000',
+      PORT: '8000',
     },
   },
 });

@@ -7,18 +7,12 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "react-hot-toast";
+import { ShoppingBag, Store, ShieldCheck } from "lucide-react";
 
 import { Input } from "@/components/common/Input";
 import { Button } from "@/components/common/Button";
 import { authService } from "@/api/auth";
 
-// User role enum
-enum UserRole {
-  USER = "USER",
-  SELLER = "SELLER",
-}
-
-// Define strict validation matching backend requirement
 const registerSchema = z
   .object({
     email: z
@@ -32,7 +26,7 @@ const registerSchema = z
       .regex(/[a-z]/, "Password needs at least one lowercase letter")
       .regex(/[0-9]/, "Password needs at least one number"),
     confirmPassword: z.string().min(1, "Please confirm your password"),
-    role: z.enum(["USER", "SELLER"], {
+    role: z.enum(["USER", "SELLER", "SUPER_ADMIN"], {
       errorMap: () => ({ message: "Please select a role" }),
     }),
   })
@@ -43,6 +37,28 @@ const registerSchema = z
 
 type RegisterFormValues = z.infer<typeof registerSchema>;
 
+const ROLES = [
+  {
+    value: "USER" as const,
+    icon: ShoppingBag,
+    label: "Buyer",
+    description: "Browse and purchase products",
+  },
+  {
+    value: "SELLER" as const,
+    icon: Store,
+    label: "Seller",
+    description: "Create a store and sell products",
+  },
+  {
+    value: "SUPER_ADMIN" as const,
+    icon: ShieldCheck,
+    label: "Admin",
+    description: "Full platform management access",
+    badge: "Testing",
+  },
+];
+
 export default function RegisterPage() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
@@ -50,13 +66,12 @@ export default function RegisterPage() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
     watch,
+    setValue,
+    formState: { errors },
   } = useForm<RegisterFormValues>({
     resolver: zodResolver(registerSchema),
-    defaultValues: {
-      role: UserRole.USER,
-    },
+    defaultValues: { role: "USER" },
   });
 
   const selectedRole = watch("role");
@@ -64,19 +79,14 @@ export default function RegisterPage() {
   const onSubmit = async (data: RegisterFormValues) => {
     setIsLoading(true);
     try {
-      // 1. Hit the backend register endpoint
       await authService.register({
         email: data.email,
         password: data.password,
         role: data.role,
       });
-
-      toast.success("Account created successfully! Please login.");
-
-      // 2. Redirect to login
+      toast.success("Account created! Please sign in.");
       router.push("/login");
     } catch (error: unknown) {
-      // Safely extract backend errors if array of validation errors existed
       const errorMessage =
         (error as any).response?.data?.message || "Registration failed";
       toast.error(errorMessage);
@@ -88,11 +98,11 @@ export default function RegisterPage() {
   return (
     <div className="flex min-h-screen items-center justify-center p-4 bg-gray-50">
       <div className="w-full max-w-sm p-6 bg-white rounded-xl shadow-sm border border-gray-100">
-        <div className="mb-8 text-center">
+        <div className="mb-7 text-center">
           <h1 className="text-2xl font-semibold tracking-tight text-gray-900">
             Create an account
           </h1>
-          <p className="mt-2 text-sm text-gray-500">
+          <p className="mt-1.5 text-sm text-gray-500">
             Join the Zentra marketplace today.
           </p>
         </div>
@@ -108,50 +118,67 @@ export default function RegisterPage() {
           />
 
           {/* Role Selection */}
-          <div className="mt-6">
-            <label className="block text-sm font-medium text-gray-900 mb-3">
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-2">
               Account Type <span className="text-red-500">*</span>
             </label>
-            <fieldset className="space-y-3">
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="user-role"
-                  value={UserRole.USER}
-                  {...register("role")}
-                  className="h-4 w-4 border-gray-300 text-black focus:ring-2 focus:ring-black"
-                />
-                <label
-                  htmlFor="user-role"
-                  className="ml-3 block cursor-pointer"
-                >
-                  <span className="font-medium text-gray-900">Buyer</span>
-                  <p className="text-sm text-gray-500">
-                    Browse and purchase products
-                  </p>
-                </label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  type="radio"
-                  id="seller-role"
-                  value={UserRole.SELLER}
-                  {...register("role")}
-                  className="h-4 w-4 border-gray-300 text-black focus:ring-2 focus:ring-black"
-                />
-                <label
-                  htmlFor="seller-role"
-                  className="ml-3 block cursor-pointer"
-                >
-                  <span className="font-medium text-gray-900">Seller</span>
-                  <p className="text-sm text-gray-500">
-                    Create a store and sell products
-                  </p>
-                </label>
-              </div>
-            </fieldset>
+            <div className="space-y-2">
+              {ROLES.map(({ value, icon: Icon, label, description, badge }) => {
+                const isSelected = selectedRole === value;
+                return (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() =>
+                      setValue("role", value, { shouldValidate: true })
+                    }
+                    className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg border text-left transition-all ${
+                      isSelected
+                        ? "border-black bg-black text-white"
+                        : "border-gray-200 bg-white text-gray-700 hover:border-gray-400"
+                    }`}
+                  >
+                    <Icon
+                      className={`w-4 h-4 shrink-0 ${isSelected ? "text-white" : "text-gray-500"}`}
+                    />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2">
+                        <span
+                          className={`text-sm font-medium ${isSelected ? "text-white" : "text-gray-900"}`}
+                        >
+                          {label}
+                        </span>
+                        {badge && (
+                          <span
+                            className={`text-[10px] font-semibold px-1.5 py-0.5 rounded ${isSelected ? "bg-white/20 text-white" : "bg-amber-100 text-amber-700"}`}
+                          >
+                            {badge}
+                          </span>
+                        )}
+                      </div>
+                      <p
+                        className={`text-xs mt-0.5 ${isSelected ? "text-white/75" : "text-gray-400"}`}
+                      >
+                        {description}
+                      </p>
+                    </div>
+                    <div
+                      className={`w-4 h-4 shrink-0 rounded-full border-2 flex items-center justify-center ${isSelected ? "border-white" : "border-gray-300"}`}
+                    >
+                      {isSelected && (
+                        <div className="w-2 h-2 rounded-full bg-white" />
+                      )}
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+            {/* hidden input to register the role value */}
+            <input type="hidden" {...register("role")} />
             {errors.role && (
-              <p className="mt-2 text-sm text-red-500">{errors.role.message}</p>
+              <p className="mt-1.5 text-xs text-red-500">
+                {errors.role.message}
+              </p>
             )}
           </div>
 
@@ -174,7 +201,7 @@ export default function RegisterPage() {
           />
 
           <Button type="submit" className="w-full mt-2" isLoading={isLoading}>
-            Sign Up
+            Create Account
           </Button>
         </form>
 
@@ -184,7 +211,7 @@ export default function RegisterPage() {
             href="/login"
             className="font-medium text-black hover:underline"
           >
-            Log in here
+            Sign in
           </Link>
         </div>
       </div>

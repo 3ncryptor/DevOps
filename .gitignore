@@ -1,5 +1,29 @@
 node_modules
 
+# Environment files
+.env
+.env.local
+.env*.local
+**/.env.local
+
+# macOS duplicate files (created by Finder/lint-staged stash restore)
+**/* [0-9].*
+**/* [0-9][0-9].*
+
 # Next.js build output & cache (never commit)
 Frontend/.next/
 .next/
+
+# macOS
+.DS_Store
+
+# Logs
+*.log
+logs/
+
+# Test coverage
+coverage/
+
+# Playwright output
+test-results/
+playwright-report/

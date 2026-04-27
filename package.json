@@ -10,7 +10,7 @@
     "prettier": "^3.7.4"
   },
   "lint-staged": {
-    "Backend/src/**/*.js": "prettier --check",
-    "Frontend/src/**/*.{ts,tsx,js,jsx}": "prettier --check"
+    "Backend/src/**/*.js": "prettier --write",
+    "Frontend/src/**/*.{ts,tsx,js,jsx}": "prettier --write"
   }
 }

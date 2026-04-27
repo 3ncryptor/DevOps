@@ -8,7 +8,7 @@
 ################################################################################
 
 set -euo pipefail  # Exit on error, undefined variables, and pipe failures
-echo "test pr"
+
 # Exit Codes
 readonly EXIT_SUCCESS=0
 readonly EXIT_PACKAGE_JSON_NOT_FOUND=1

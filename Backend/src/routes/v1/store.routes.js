@@ -34,13 +34,6 @@ router.get('/', optionalAuth, listAllStores);
  */
 router.get('/id/:storeId', optionalAuth, getStoreByIdHandler);
 
-/**
- * @route   GET /api/v1/stores/:slug
- * @desc    Get store by slug (must be last to not conflict with other routes)
- * @access  Public
- */
-router.get('/:slug', optionalAuth, getStoreBySlugHandler);
-
 // ============== SELLER ROUTES ==============
 
 /**
@@ -95,5 +88,14 @@ router.post(
     checkStoreOwnership,
     closeMyStore
 );
+
+// ============== PUBLIC ROUTES (parameterised — must come after static paths) ==============
+
+/**
+ * @route   GET /api/v1/stores/:slug
+ * @desc    Get store by slug (must be last to not conflict with other routes)
+ * @access  Public
+ */
+router.get('/:slug', optionalAuth, getStoreBySlugHandler);
 
 export default router;

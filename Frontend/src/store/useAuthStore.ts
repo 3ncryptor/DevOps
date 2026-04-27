@@ -1,50 +1,52 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-
-// Basic User type representing our unified User/Seller response
-export interface AuthUser {
-    _id: string;
-    email: string;
-    role: 'USER' | 'SELLER' | 'SUPER_ADMIN';
-    accountStatus: 'ACTIVE' | 'SUSPENDED' | 'DELETED';
-    emailVerified: boolean;
-}
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import type { AuthUser } from "@/types/auth";
+import type { Role } from "@/types/common";
 
 interface AuthState {
-    user: AuthUser | null;
-    accessToken: string | null;
-    isAuthenticated: boolean;
-    
-    // Actions
-    setAuth: (token: string, user: AuthUser) => void;
-    logout: () => void;
-    updateUser: (user: Partial<AuthUser>) => void;
+  user: AuthUser | null;
+  accessToken: string | null;
+  isAuthenticated: boolean;
+
+  setAuth: (token: string, user: AuthUser) => void;
+  logout: () => void;
+  updateUser: (updates: Partial<AuthUser>) => void;
 }
 
-/**
- * Global authentication store
- * Persists the user and access token automatically to localStorage so reloads are smooth
- */
+function syncAuthCookie(token: string | null, role: Role | null) {
+  if (typeof document === "undefined") return;
+  if (token && role) {
+    const maxAge = 60 * 60 * 24; // 1 day
+    document.cookie = `zentra_token=${token};path=/;max-age=${maxAge};samesite=lax`;
+    document.cookie = `zentra_role=${role};path=/;max-age=${maxAge};samesite=lax`;
+  } else {
+    document.cookie = "zentra_token=;path=/;max-age=0";
+    document.cookie = "zentra_role=;path=/;max-age=0";
+  }
+}
+
 export const useAuthStore = create<AuthState>()(
-    persist(
-        (set) => ({
-            user: null,
-            accessToken: null,
-            isAuthenticated: false,
+  persist(
+    (set) => ({
+      user: null,
+      accessToken: null,
+      isAuthenticated: false,
 
-            setAuth: (token, user) => 
-                set({ user, accessToken: token, isAuthenticated: true }),
+      setAuth: (token, user) => {
+        syncAuthCookie(token, user.role);
+        set({ user, accessToken: token, isAuthenticated: true });
+      },
 
-            logout: () => 
-                set({ user: null, accessToken: null, isAuthenticated: false }),
+      logout: () => {
+        syncAuthCookie(null, null);
+        set({ user: null, accessToken: null, isAuthenticated: false });
+      },
 
-            updateUser: (updates) => 
-                set((state) => ({ 
-                    user: state.user ? { ...state.user, ...updates } : null 
-                })),
-        }),
-        {
-            name: 'zentra-auth', // key used in localStorage
-        }
-    )
+      updateUser: (updates) =>
+        set((state) => ({
+          user: state.user ? { ...state.user, ...updates } : null,
+        })),
+    }),
+    { name: "zentra-auth" },
+  ),
 );

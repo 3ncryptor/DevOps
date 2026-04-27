@@ -21,10 +21,14 @@ router.use(authenticate);
 
 /**
  * @route   POST /api/v1/sellers/register
- * @desc    Register as a seller (USER can become SELLER)
- * @access  Private (USER role)
+ * @desc    Register as a seller (USER or SELLER role can create a seller profile)
+ * @access  Private (USER or SELLER role)
  */
-router.post('/register', authorizeRoles(ROLES.USER), registerAsSeller);
+router.post(
+    '/register',
+    authorizeRoles(ROLES.USER, ROLES.SELLER),
+    registerAsSeller
+);
 
 /**
  * @route   GET /api/v1/sellers/me

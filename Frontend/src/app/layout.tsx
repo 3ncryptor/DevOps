@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { ToastProvider } from "@/providers/ToastProvider";
 import { ReactQueryProvider } from "@/providers/ReactQueryProvider";
 import { Navbar } from "@/components/layout/Navbar";
+import { SessionBootstrap } from "@/components/auth/SessionBootstrap";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -32,6 +33,7 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-gray-50 text-gray-900">
         <ReactQueryProvider>
+          <SessionBootstrap />
           <Navbar />
           <main className="flex-1 w-full bg-white max-w-7xl mx-auto min-h-[calc(100vh-64px)] shadow-sm">
             {children}
