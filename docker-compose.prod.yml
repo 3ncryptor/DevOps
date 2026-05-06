@@ -1,0 +1,13 @@
+services:
+  mongo:
+    profiles:
+      - dev
+
+  mongo-init:
+    profiles:
+      - dev
+
+  backend:
+    env_file:
+      - ./Backend/.env
+    depends_on: []

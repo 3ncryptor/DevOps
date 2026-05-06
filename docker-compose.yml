@@ -25,31 +25,35 @@ services:
       "try { rs.status() } catch(e) { rs.initiate({ _id:'rs0', members:[{_id:0,host:'mongo:27017'}] }) }"
 
   backend:
-    image: node:20-alpine
-    working_dir: /app
-    command: sh -c "npm install && npm run dev"
+    build:
+      context: ./Backend
+      dockerfile: Dockerfile.dev
+    working_dir: /usr/src/app
+    command: npm run dev
     ports:
       - "8000:8000"
     volumes:
-      - ./Backend:/app
-      - backend_node_modules:/app/node_modules
-    environment:
-      NODE_ENV: development
-      MONGODB_URI: mongodb://mongo:27017/zentra
-    depends_on:
-      - mongo
+      - ./Backend:/usr/src/app
+      - backend_node_modules:/usr/src/app/node_modules
+    env_file:
+      - ./Backend/.env
 
   frontend:
-    image: node:20-alpine
-    working_dir: /app
-    command: sh -c "npm install && npm run dev"
+    build:
+      context: ./Frontend
+      dockerfile: Dockerfile.dev
+    working_dir: /usr/src/app
+    command: npm run dev
     ports:
       - "3000:3000"
     volumes:
-      - ./Frontend:/app
-      - frontend_node_modules:/app/node_modules
+      - ./Frontend:/usr/src/app
+      - frontend_node_modules:/usr/src/app/node_modules
     environment:
       NODE_ENV: development
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+    depends_on:
+      - backend
 
 volumes:
   mongo_data:

@@ -30,36 +30,12 @@ app.set('trust proxy', 1);
 // Security: Disable x-powered-by header
 app.disable('x-powered-by');
 
-// CORS configuration
-const corsOptions = {
-    origin: (origin, callback) => {
-        const envOrigins = process.env.CORS_ORIGIN?.split(',') || [];
-        const allowedOrigins = [
-            'http://localhost:3000',
-            'http://localhost:8000', // Allow Swagger UI
-            ...envOrigins,
-        ];
-        // Allow requests with no origin (like mobile apps or curl requests)
-        if (
-            !origin ||
-            allowedOrigins.includes(origin) ||
-            allowedOrigins.includes('*')
-        ) {
-            callback(null, true);
-        } else {
-            callback(new Error('Not allowed by CORS'));
-        }
-    },
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
-    allowedHeaders: [
-        'Content-Type',
-        'Authorization',
-        'X-Requested-With',
-        'X-Request-ID',
-    ],
-};
-app.use(cors(corsOptions));
+app.use(
+    cors({
+        origin: process.env.CORS_ORIGIN?.split(',') || 'http://localhost:3000',
+        credentials: true,
+    })
+);
 
 // Core middlewares
 app.use(express.json({ limit: '16kb' }));

@@ -27,3 +27,8 @@ coverage/
 # Playwright output
 test-results/
 playwright-report/
+
+# Terraform local state and providers
+terraform/.terraform/
+terraform/terraform.tfstate
+terraform/terraform.tfstate.backup
